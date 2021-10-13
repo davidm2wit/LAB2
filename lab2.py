@@ -18,36 +18,40 @@ class Wall():
     def draw(self):
         pygame.draw.rect(self.screen, self.color, [self.x, self.y, self.width, self.height], 0)
 
-pygame.init()
 
-pygame.display.set_caption("lab2")
-WIDTH = 800
-HEIGHT = 480
-BORDER = 20
-COLOR = pygame.Color(255,0,245)
-screen = pygame.display.set_mode((WIDTH,HEIGHT))
+def main(): 
+    pygame.init()
 
-wall_top = Wall(0,0,WIDTH,BORDER,COLOR,screen)
-wall_bottom = Wall(0,HEIGHT-BORDER,WIDTH,BORDER,COLOR,screen)
-wall_left = Wall(0,0,BORDER,HEIGHT,COLOR,screen)
+    pygame.display.set_caption("lab2")
+    WIDTH = 800
+    HEIGHT = 480
+    BORDER = 20
+    COLOR = pygame.Color(255,0,245)
+    screen = pygame.display.set_mode((WIDTH,HEIGHT))
 
-wall_top.draw()
-wall_bottom.draw()
-wall_left.draw()
+    wall_top = Wall(0,0,WIDTH,BORDER,COLOR,screen)
+    wall_bottom = Wall(0,HEIGHT-BORDER,WIDTH,BORDER,COLOR,screen)
+    wall_left = Wall(0,0,BORDER,HEIGHT,COLOR,screen)
 
-pygame.display.update()
+    wall_top.draw()
+    wall_bottom.draw()
+    wall_left.draw()
+
+    pygame.display.update()
 
 
-# define a variable to control the main loop
-running = True
-    
-# main loop
-while running:
-    # event handling, gets all event from the event queue
-    for event in pygame.event.get():
-        # only do something if the event is of type QUIT
-        if event.type == pygame.QUIT:
-            # change the value to False, to exit the main loop
-            running = False
-    
-     
+    # define a variable to control the main loop
+    running = True
+        
+    # main loop
+    while running:
+        # event handling, gets all event from the event queue
+        for event in pygame.event.get():
+            # only do something if the event is of type QUIT
+            if event.type == pygame.QUIT:
+                # change the value to False, to exit the main loop
+                running = False
+
+
+if __name__ == "__main__":
+    main()
